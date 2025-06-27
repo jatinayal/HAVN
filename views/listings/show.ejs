@@ -91,7 +91,7 @@
            <small class="review-date">~ <%= review.createdAt.toDateString() %></small>
             
         </div>
-      <% if(currUser && listing.owner._id.equals(currUser._id)) { %>
+      <% if(currUser && review.author.equals(currUser._id)) { %>
         <form class="delete-review-form" method="POST" action="/listings/<%= listing._id %>/reviews/<%= review._id %>?_method=DELETE">
           <button type="submit">Delete</button>
         </form>
