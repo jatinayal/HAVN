@@ -1,0 +1,43 @@
+<nav class="navbar navbar-expand-md border-bottom sticky-top shadow-sm">
+  <div class="container d-flex align-items-center justify-content-between">
+    <!-- Logo -->
+    <a class="navbar-brand d-flex align-items-center gap-2" href="/">
+      <img src="/images/havn-logo.svg" alt="HAVN Logo" class="logo-icon">
+      <span class="logo-text">HAVN</span>
+    </a>
+
+    <!-- Toggle -->
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <!-- Nav Links -->
+    <div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
+      <div class="nav-box d-flex gap-3 align-items-center px-3 py-2">
+      
+        
+        <a class="nav-link" href="/listings">All Listings</a>
+        <a class="nav-link" href="/listings/new">Add New Listing</a>
+
+         <div class="search-bar d-flex align-items-center">
+      <input type="text" placeholder="Search listings..." class="form-control search-input">
+      <button class="search-btn" type="submit">
+        <i class="fas fa-search"></i>
+      </button>
+    </div>
+
+      </div>
+    </div>
+     <div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
+      <div class="nav-box d-flex gap-3 align-items-center px-3 py-2">
+       
+       <% if(!currUser) { %>
+        <a class="nav-link" href="/signup"><b>Sign up</b></a>
+        <a class="nav-link" href="/login"><b>Log in</b></a>
+        <% } %><% if(currUser) { %>
+        <a class="nav-link" href="/logout"><b>Log out</b></a>
+         <% } %>
+      </div>
+    </div>
+  </div>
+</nav>

@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>HAVN | Your Stay, Your Way</title>
+  <link rel="icon" href="/images/havn-logo.svg">
+  <link rel="alternate icon" href="/images/havn-logo.svg">
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;800&display=swap" rel="stylesheet">
+
+  <style>
+
+    body, html {
+      margin: 0;
+      padding: 0;
+      font-family: 'Nunito', sans-serif;
+      background: linear-gradient(to bottom right, #ffffff, #f4f4f8);
+    }
+
+    .hero-section {
+      height: 75vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      position: relative;
+    }
+
+    .hero-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(255, 255, 255, 0.88);
+      z-index: 1;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .logo-image {
+      width: 100px;
+      height: auto;
+      margin-bottom: 0.5rem;
+      transition: transform 0.3s ease;
+    }
+
+    .logo-image:hover {
+      transform: scale(1.08);
+    }
+
+    .logo-text {
+      font-size: 2.5rem;
+      font-weight: 800;
+      color: #fe424d;
+      margin-bottom: 2.5rem;
+    }
+
+    .hero-buttons {
+      display: flex;
+      gap: 1.2rem;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .hero-buttons a {
+      text-decoration: none;
+      padding: 0.85rem 2rem;
+      font-size: 1.1rem;
+      font-weight: 600;
+      border-radius: 0.75rem;
+      transition: all 0.3s ease-in-out;
+      min-width: 160px;
+    }
+
+    .btn-listings {
+      background-color: #fe424d;
+      color: #fff;
+    }
+
+    .btn-listings:hover {
+      background-color: #e63a42;
+    }
+
+    .btn-signup {
+      background-color: #f9f9f9;
+      color: #333;
+      border: 1px solid #ddd;
+    }
+
+    .btn-signup:hover {
+      background-color: #f0f0f0;
+      color: #fe424d;
+    }
+
+    /* About Section */
+   .about-section {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1rem 1rem;
+  background: linear-gradient(to bottom, #ffffff, #f9f9fb);
+  text-align: center;
+  box-sizing: border-box;
+}
+
+.about-section h2 {
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: #fe424d;
+  margin-bottom: 2rem;
+}
+
+.about-section p {
+  max-width: 1000px;
+  width: 100%;
+  font-size: 1.15rem;
+  line-height: 1.8;
+  color: #333;
+}
+.developer-section {
+  width: 100%;
+  padding: 1rem 2rem 4rem 2rem;
+  background: linear-gradient(to bottom, #f9f9fb, #ffffff);
+  text-align: center;
+}
+
+.developer-section h2 {
+  font-size: 2.3rem;
+  font-weight: 800;
+  color: #fe424d;
+  margin-bottom: 1.5rem;
+}
+
+.developer-section p {
+  max-width: 800px;
+  margin: 0 auto 2.5rem;
+  font-size: 1.15rem;
+  color: #333;
+  line-height: 1.7;
+}
+
+.social-links {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.social-icon {
+    text-decoration: none;
+  font-size: 1.4rem;
+  padding: 0.8rem;
+  border-radius: 50%;
+  background-color: #f5f5f5;
+  color: #333;
+  transition: all 0.3s ease-in-out;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+}
+
+.social-icon:hover {
+  transform: scale(1.1);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.social-icon.linkedin { color: #0077b5; }
+.social-icon.github { color: #000000; }
+.social-icon.instagram { color: #e4405f; }
+.social-icon.twitter { color: #1da1f2; }
+
+.tech-stack-section {
+  width: 100%;
+  padding: 1rem 2rem;
+  background: linear-gradient(to bottom, #ffffff, #f9f9fb);
+  text-align: center;
+}
+
+.tech-stack-section h2 {
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: #fe424d;
+  margin-bottom: 3rem;
+}
+
+.tech-stack-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+  max-width: 1300px;
+  margin: 0 auto;
+}
+
+.stack-group {
+  background-color: #fff;
+  border: 1px solid #e0e0e0;
+  border-radius: 1rem;
+  padding: 1.5rem;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.05);
+  width: 260px;
+  text-align: left;
+  transition: transform 0.2s ease-in-out;
+}
+
+.stack-group:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.08);
+}
+
+.stack-group h4 {
+  font-size: 1.3rem;
+  color: #fe424d;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.stack-group ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.stack-group ul li {
+  font-size: 1rem;
+  color: #333;
+  padding: 0.4rem 0;
+  border-bottom: 1px dashed #ececec;
+}
+.main-wrapper {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow-x: hidden;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+/* Optional: Add global vertical spacing between sections */
+.main-wrapper > section {
+  width: 100%;
+  margin-bottom: 3rem;
+}
+
+/* XS Screens */
+@media (max-width: 480px) {
+  .main-wrapper > section {
+    margin-bottom: 2rem;
+  }
+}
+
+
+@media (max-width: 480px) {
+  .tech-stack-section {
+    padding: 2.5rem 1rem;
+     width: 90%;
+  }
+
+  .tech-stack-section h2 {
+    font-size: 1.8rem;
+    margin-bottom: 2rem;
+  }
+
+  .tech-stack-grid {
+    gap: 1.5rem;
+  }
+
+  .stack-group {
+    width: 60%;
+    padding: 1rem;
+    border-radius: 0.8rem;
+  }
+
+  .stack-group h4 {
+    font-size: 1.1rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .stack-group ul li {
+    font-size: 0.9rem;
+    padding: 0.35rem 0;
+  }
+}
+
+
+
+    @media (max-width: 576px) {
+      .logo-text {
+        font-size: 1.8rem;
+      }
+      .hero-buttons {
+        flex-direction: column;
+        gap: 0.75rem;
+      }
+
+      .hero-buttons a {
+        font-size: 1rem;
+        padding: 0.75rem 1.5rem;
+      }
+
+      .about-section {
+        padding: 2.5rem 1rem;
+      }
+ .about-section h2 {
+    font-size: 1.75rem;
+  }
+
+  .about-section p {
+    font-size: 1rem;
+    padding: 0;
+  }
+  .developer-section{
+    width: 80%;
+  }
+  .developer-section h2 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #fe424d;
+  margin-bottom: 1rem;
+}
+.developer-section p {
+  max-width: 600px;
+  margin: 0 auto 2rem;
+  font-size: 1rem;
+  color: #333;
+  line-height: 1.5;
+}
+
+.social-links {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.social-icon {
+    text-decoration: none;
+  font-size: 1.4rem;
+  padding: 0.8rem;
+  border-radius: 50%;
+  background-color: #f5f5f5;
+  color: #333;
+  transition: all 0.3s ease-in-out;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+}
+    }
+  </style>
+  <link rel="stylesheet" href="/css/style.css" />
+  <link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+  crossorigin="anonymous"
+/>
+</head>
+
+<body>
+ <main class="main-wrapper">
+  <!-- HERO SECTION -->
+  <section class="hero-section">
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <img src="/images/havn-logo.svg" alt="HAVN Logo" class="logo-image" />
+      <div class="logo-text">HAVN</div>
+      <div class="hero-buttons">
+        <a href="/listings" class="btn-listings">All Listings</a>
+        <a href="/signup" class="btn-signup">Get Started</a>
+      </div>
+    </div>
+  </section>
+
+   <!-- ABOUT SECTION -->
+  <section class="about-section">
+    <h2>About HAVN</h2>
+    <p>
+      <strong>Welcome to HAVN – Your Stay, Your Way.</strong><br><br>
+      HAVN is a modern, user-friendly platform inspired by the ease and elegance of Airbnb, designed to connect travelers with unique, comfortable, and affordable stays. Whether you're planning a weekend escape, a remote work retreat, or an extended vacation, HAVN offers handpicked listings tailored to your lifestyle and budget. Built with simplicity and scalability in mind, HAVN is fast, responsive, and full-screen by design — so users get an immersive, seamless experience from browsing to booking. With clean visuals, smart navigation, and intuitive design, HAVN is not just a place to stay — it's your digital home for discovering new places, creating memories, and booking your next adventure with confidence.
+    </p>
+  </section>
+
+<section class="tech-stack-section">
+  <h2>Tech Stack</h2>
+  <div class="tech-stack-grid">
+    <div class="stack-group">
+      <h4>Frontend</h4>
+      <ul>
+        <li>HTML5</li>
+        <li>CSS3</li>
+        <li>Bootstrap 5</li>
+        <li>Font Awesome</li>
+        <li>Google Fonts (Nunito)</li>
+        <li>Custom CSS</li>
+        <li>EJS</li>
+      </ul>
+    </div>
+    <div class="stack-group">
+      <h4>Backend</h4>
+      <ul>
+        <li>Node.js</li>
+        <li>Express.js</li>
+        <li>MongoDB</li>
+        <li>Mongoose</li>
+        <li>Mapbox SDK</li>
+      </ul>
+    </div>
+    <div class="stack-group">
+      <h4>Auth & Session</h4>
+      <ul>
+        <li>Passport.js</li>
+        <li>express-session</li>
+        <li>connect-flash</li>
+      </ul>
+    </div>
+    <div class="stack-group">
+      <h4>Image & Maps</h4>
+      <ul>
+        <li>Multer</li>
+        <li>Cloudinary</li>
+        <li>Mapbox GL JS</li>
+      </ul>
+    </div>
+    <div class="stack-group">
+      <h4>Utilities</h4>
+      <ul>
+        <li>dotenv</li>
+        <li>method-override</li>
+        <li>express-validator</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+  <!-- Meet the Developer Section -->
+<section class="developer-section">
+  <h2>Meet The Developer</h2>
+  <p>Hi, I'm Jatin — a passionate full-stack developer who built HAVN with ❤️ using the MERN stack. I love clean code, UI/UX, and building helpful tools.</p>
+  
+  <div class="social-links">
+    <a href="https://www.linkedin.com/in/jatin-nayal-300438353" target="_blank" class="social-icon linkedin" aria-label="LinkedIn">
+      <i class="fab fa-linkedin-in"></i>
+    </a>
+    <a href="https://github.com/jatinayal" target="_blank" class="social-icon github" aria-label="GitHub">
+      <i class="fab fa-github"></i>
+    </a>
+    <a href="https://instagram.com/jatinayal" target="_blank" class="social-icon instagram" aria-label="Instagram">
+      <i class="fab fa-instagram"></i>
+    </a>
+    <a href="#" target="_blank" class="social-icon twitter" aria-label="Twitter">
+      <i class="fab fa-x-twitter"></i>
+    </a>
+  </div>
+</section>
+</main>
+</body>
+</html>
